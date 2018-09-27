@@ -2,8 +2,8 @@
 
 int main()
 {
- int a = 3;
- int b = 2;
+ int a = 7;
+ int b = 1;
  
  cout <<a<<" "<<b<<"\n";
  
