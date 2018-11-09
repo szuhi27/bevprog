@@ -1,0 +1,73 @@
+hallgato@172:~$ cd Asztal/
+hallgato@172:~/Asztal$ echo "alma" > a.txt
+hallgato@172:~/Asztal$ echo "alma" > a.txt
+hallgato@172:~/Asztal$ echo "korte" > b.txt
+hallgato@172:~/Asztal$ cat a.txt b.txt 
+alma
+korte
+hallgato@172:~/Asztal$ cat a.txt b.txt > c.txt
+hallgato@172:~/Asztal$ cat c.txt 
+alma
+korte
+hallgato@172:~/Asztal$ cat b.txt | colrm 2 4
+ke
+hallgato@172:~/Asztal$ cat b.txt 
+korte
+hallgato@172:~/Asztal$ cat /etc/passwd | grep hallgato | cut -d: -f3
+1001
+hallgato@172:~/Asztal$ cat /etc/passwd | grep hallgato | cut -c 1-10,20-23
+hallgato:x1:ha
+hallgato@172:~/Asztal$ grep "/bin/bash" /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+sysadmin:x:1000:1000:sysadmin,,,:/home/sysadmin:/bin/bash
+hallgato:x:1001:1001:hallgato,,,:/home/hallgato:/bin/bash
+student:x:1002:1002:student,,,:/home/student:/bin/bash
+hallgato@172:~/Asztal$ grep -c "/bin/bash" /etc/passwd
+4
+hallgato@172:~/Asztal$ grep -i  "/BIN/bash" /etc/passwd
+root:x:0:0:root:/root:/bin/bash
+sysadmin:x:1000:1000:sysadmin,,,:/home/sysadmin:/bin/bash
+hallgato:x:1001:1001:hallgato,,,:/home/hallgato:/bin/bash
+student:x:1002:1002:student,,,:/home/student:/bin/bash
+hallgato@172:~/Asztal$ grep  "/BIN/bash" /etc/passwd
+hallgato@172:~/Asztal$ cat /etc/passwd >pw.txt
+hallgato@172:~/Asztal$ grep "^hallgato" pw.txt a.txt
+pw.txt:hallgato:x:1001:1001:hallgato,,,:/home/hallgato:/bin/bash
+hallgato@172:~/Asztal$ grep -l "^hallgato" pw.txt a.txt
+pw.txt
+hallgato@172:~/Asztal$ grep -l "^hallgato" pw.txt a.txt b.txt
+pw.txt
+hallgato@172:~/Asztal$ cat pw.txt >b.txt
+hallgato@172:~/Asztal$ grep -l "^hallgato" pw.txt a.txt b.txt
+pw.txt
+b.txt
+hallgato@172:~/Asztal$ grep -v "^hallgato" /etc/passwd  <aminek fhneve nem hallgato>
+hallgato@172:~/Asztal$ grep -v "^hallgato" /etc/passwd | wc   <48 ilyen sor, 81 szó (szoközel v tabbal), hény karakter>
+     48      81    2724
+hallgato@172:~/Asztal$ grep -v "^hallgato" /etc/passwd | wc -l
+48
+	grep -w <csak azokat amire a teljes szavakra illeszkedés talál>
+
+	M.m -> Mam M2m M_m
+	['felsorolás']  M[aeiou]m -> Mam Mem Mom ||| M[a-z]m , M[a-k]m [:lower:], [:upper:], [:alpha:] -> a-z+A-Z, [:digit:]
+	ismétlödések: M.?m -> Mm Mam Mim , Mo*m -> Mm Mom Moooom
+
+	Rendszám: [A-Z] {3}- [:digit:]{3}
+	PIN-kod: [0-9] {4,8}
+	jelsto()legalab 6 karakter: .{6,}
+	Fizetés: (1M ft alatt): "[:digit:]{,6} Ft"
+
+RegexOne oldal !?
+
+
+
+
+
+
+
+
+
+
+
+
+
