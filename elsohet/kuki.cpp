@@ -12,3 +12,5 @@ int main()
 	cout << "x: " << x << "c: " << c << "d: " << d << '\n';	
 
 }
+
+//sauzhaida jdsdfsd asodzasfa sdjh
